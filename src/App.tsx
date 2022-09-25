@@ -1,18 +1,13 @@
-import { Component, lazy } from "solid-js";
-import { Router, Route } from "solid-app-router";
+import { Route, Router, Routes } from "@solidjs/router";
+import Home from "./views/Home";
+import Location from "./views/Location";
 
-const routes = [
-  {
-    path: "/",
-    component: lazy(() => import("./views/Home")),
-  },
-];
-
-const App: Component = () => {
+const App = () => {
   return (
-    <Router routes={routes}>
-      <Route />
-    </Router>
+    <Routes>
+      <Route path="/" component={Home} />
+      <Route path="/location/:id" component={Location} />
+    </Routes>
   );
 };
 
